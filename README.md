@@ -1,4 +1,4 @@
-# Trabajo Practico Numero 2
+# Trabajo Practico Numero 3
 - Alumno:
     - Andrada Luis Elian
     - 43362912
@@ -8,7 +8,5 @@
 - Docente:
     - Esteban Volentini
 
-## Que haremos en este TP?
-- Hacer un programa que coloque en formato Json los datos de los alumnos
-- Hacer que el programa se compile con el comando make all
-- Documentar con Doxygen
+## Que haremos en este TP
+- A partir de lo realizado en el TP2 generaremos un patron de programacion ADT.
