@@ -1,6 +1,7 @@
 #include "alumno.h"
 #include <stdio.h>
 #include <stdint.h>
+#include <string.h>
 #include <stdbool.h>
 
 
@@ -15,9 +16,9 @@
 */
 //Declaracion de funciones locales
 
-static int SerializarNumero(const char * campo,int * valor_campo, char * cadena_json,int  espacio);
+static int SerializarNumero(const char * campo,int valor_campo, char * cadena_json,int  espacio);
 
-static int SerializarCadena(const char * campo,char * valor_campo, char * cadena_json,int  espacio);
+static int SerializarCadena(const char * campo,const char * valor_campo, char * cadena_json,int  espacio);
 
 //Definicion de estructuras
 /** @brief
@@ -29,7 +30,7 @@ struct alumno_s
 {
     char apellido[50];
     char nombre[50];
-    uint32_t documento;
+    int documento;
     bool libre;
 };
 
@@ -71,10 +72,10 @@ int SerializarAlumno(const struct alumno_s * alumno,char cadena_json[], uint32_t
  * SerializarNumero: Se encargara de colocar un numero dado en una cadena dada
  * SerializarCadena: Se encargara de colocar una cadena de caracteres dada en una cadena en memoria
 */
-static int SerializarNumero(const char * campo,int * valor_campo, char * cadena_json,int  espacio){
+static int SerializarNumero(const char * campo,int valor_campo, char * cadena_json,int  espacio){
     return snprintf(cadena_json,espacio,"\"%s\":\"%d\",",campo,valor_campo);
 }
-static int SerializarCadena(const char * campo,char * valor_campo, char * cadena_json,int  espacio){
+static int SerializarCadena(const char * campo,const char * valor_campo, char * cadena_json,int  espacio){
     return snprintf(cadena_json,espacio,"\"%s\":\"%s\"",campo,valor_campo);
 }
 // Porque se usa puntero en la primera variable?
